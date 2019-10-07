@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BaatCheat</string>
+    <string name="error_no_internet">Check your internet connection</string>
+    <string name="error_try_again">Please try again</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="proceed">Proceed</string>
+    <string name="verification_email_sent">A verification email sent. Please verify and click proceed.</string>
+    <string name="error_verification_email">Failed to send verification email. Krupaya try again later.</string>
+    <string name="verify_email">Please verify your email</string>
+    <string name="resend">Resend</string>
+</resources>
