@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.anxit.baatcheat">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,8 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomePage"></activity>
-        <activity android:name=".SignInActivity">
+        <activity
+            android:name=".geolocationSearch.geolocationSearch"
+            android:label="@string/title_activity_geolocation_search"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".interestSearch.HomePage" />
+        <activity android:name=".authentication.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

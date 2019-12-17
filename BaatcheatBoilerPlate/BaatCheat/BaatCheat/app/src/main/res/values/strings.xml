@@ -3,7 +3,7 @@
     <string name="error_no_internet">Check your internet connection</string>
     <string name="error_try_again">Please try again</string>
     <string name="sign_out">Sign Out</string>
-    <string name="proceed">Proceed</string>
+    <string name="proceed">Interest-based Matching</string>
     <string name="verification_email_sent">A verification email sent. Please verify and click proceed.</string>
     <string name="error_verification_email">Failed to send verification email. Krupaya try again later.</string>
     <string name="verify_email">Please verify your email</string>
@@ -11,4 +11,6 @@
     <string name="enter_interests">Enter Your Interests (eg Marvel, Formula1)</string>
     <string name="find_similar">Find Similar People</string>
     <string name="error_text">This should not be displayed</string>
+    <string name="locationQueries">Geolocation Search</string>
+    <string name="title_activity_geolocation_search">geolocationSearch</string>
 </resources>

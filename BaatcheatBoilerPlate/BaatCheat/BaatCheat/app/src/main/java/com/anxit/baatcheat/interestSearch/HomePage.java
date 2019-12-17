@@ -1,4 +1,4 @@
-package com.anxit.baatcheat;
+package com.anxit.baatcheat.interestSearch;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.anxit.baatcheat.R;
 import com.anxit.baatcheat.adapters.RecyclerViewAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -41,10 +42,6 @@ public class HomePage extends AppCompatActivity {
     //UI Elements:
     EditText interestEditText;
     RecyclerView usernameRecyclerView;
-
-    //FireStore:
-    private DocumentReference userDocumentReference;
-    private CollectionReference userCollectionReference;
 
     //Authentication:
     FirebaseUser currentUser;
@@ -86,8 +83,9 @@ public class HomePage extends AppCompatActivity {
             Toast.makeText(this, "Nope", Toast.LENGTH_SHORT).show();
             return;
         }
-        userDocumentReference = FirebaseFirestore.getInstance().document("users/"+currentUser.getEmail());
-        userCollectionReference = FirebaseFirestore.getInstance().collection("users");
+        //FireStore:
+        DocumentReference userDocumentReference = FirebaseFirestore.getInstance().document("users/" + currentUser.getEmail());
+        CollectionReference userCollectionReference = FirebaseFirestore.getInstance().collection("users");
 
         Map<String, Object> userData = new HashMap<>();
         userData.put(INTEREST_KEY, interests);
@@ -114,9 +112,11 @@ public class HomePage extends AppCompatActivity {
                     documents = (ArrayList<DocumentSnapshot>) queryDocumentSnapshots.getDocuments();
                     for(int i=0; i<documents.size(); i++){
                         Log.i(TAG, "onSuccess: "+documents.get(i).get("name"));
-                        if(!documents.get(i).get("name").equals(currentUser.getDisplayName())
-                                && !usernameList.contains(documents.get(i).get("name")))
+                        //noinspection SuspiciousMethodCalls
+                        if(!Objects.equals(documents.get(i).get("name"), currentUser.getDisplayName())
+                                && !usernameList.contains(documents.get(i).get("name"))) {
                             usernameList.add((String)documents.get(i).get("name"));
+                        }
                     }
                 }
             });

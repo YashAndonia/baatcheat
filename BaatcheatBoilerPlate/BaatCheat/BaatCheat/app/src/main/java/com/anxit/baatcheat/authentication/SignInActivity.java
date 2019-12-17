@@ -1,4 +1,4 @@
-package com.anxit.baatcheat;
+package com.anxit.baatcheat.authentication;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.anxit.baatcheat.R;
+import com.anxit.baatcheat.interestSearch.HomePage;
+import com.anxit.baatcheat.geolocationSearch.geolocationSearch;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.ErrorCodes;
 import com.firebase.ui.auth.IdpResponse;
@@ -35,7 +38,8 @@ public class SignInActivity extends AppCompatActivity
 
     //UI Elements:
     CoordinatorLayout wrapperCoordinatorLayout;
-    Button proceedButton;
+    Button interestSearch;
+    Button locationQueries;
 
     //Authentication:
     FirebaseAuth auth;
@@ -48,8 +52,10 @@ public class SignInActivity extends AppCompatActivity
 
         //Initializing UI elements:
         wrapperCoordinatorLayout = findViewById(R.id.wrapper_coordinator_layout);
-        proceedButton = findViewById(R.id.proceed_button);
-        proceedButton.setOnClickListener(this);
+        interestSearch = findViewById(R.id.interestSearch);
+        interestSearch.setOnClickListener(this);
+        locationQueries = findViewById(R.id.locationQueries);
+        locationQueries.setOnClickListener(this);
 
         lastResendTime = 0;
 
@@ -178,6 +184,10 @@ public class SignInActivity extends AppCompatActivity
                 });
     }
 
+
+
+
+    //to interest Search
     public void proceed() {
         if (auth.getCurrentUser() == null)
             return;
@@ -189,8 +199,28 @@ public class SignInActivity extends AppCompatActivity
         }
          */
 
-        startActivity(new Intent(this, HomePage.class));
+        startActivity(new Intent(this, HomePage.class));//interestSearchPage
     }
+
+
+    //to geolocationSearch
+    public void proceedToLocationSearch() {
+        if (auth.getCurrentUser() == null)
+            return;
+
+        /*
+        if (!isEmailVerified()) {  //Does not work!
+            showSnackBar(R.string.verify_email);
+            return;
+        }
+         */
+
+        startActivity(new Intent(this, geolocationSearch.class));//geolocationSearch
+    }
+
+
+
+    
     public void signOut(View view){
         AuthUI.getInstance()
                 .signOut(this)
@@ -217,8 +247,11 @@ public class SignInActivity extends AppCompatActivity
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.proceed_button) {
+        if (v.getId() == R.id.interestSearch) {
             proceed();
+        }
+        if (v.getId() == R.id.locationQueries) {
+            proceedToLocationSearch();
         }
     }
 }

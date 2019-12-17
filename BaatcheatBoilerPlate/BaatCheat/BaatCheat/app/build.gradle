@@ -33,17 +33,18 @@ dependencies {
     //Firebase:
     implementation 'com.google.firebase:firebase-analytics:17.2.1' //Analytics
     implementation 'com.firebaseui:firebase-ui-auth:4.3.2' //Authentication with UI
-    implementation "com.google.firebase:firebase-auth:19.1.0" //Clearing errors
-    implementation 'com.google.firebase:firebase-firestore:21.2.1' //Cloud FireStore (DB)
+    implementation "com.google.firebase:firebase-auth:19.2.0" //Clearing errors
+    implementation 'com.google.firebase:firebase-firestore:21.3.1' //Cloud FireStore (DB)
     implementation 'com.google.firebase:firebase-analytics:17.2.1'  // Analytics
     implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1' //Crashlytics
-    implementation 'com.google.firebase:firebase-perf:19.0.1' //Performance Monitoring
+    implementation 'com.google.firebase:firebase-perf:19.0.3' //Performance Monitoring
 
     //UI:
-    implementation "com.google.android.material:material:1.2.0-alpha01" //Material Design
+    implementation "com.google.android.material:material:1.2.0-alpha02" //Material Design
 
     //RecyclerView:
     implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
 }
 
 //Firebase Stuff:
