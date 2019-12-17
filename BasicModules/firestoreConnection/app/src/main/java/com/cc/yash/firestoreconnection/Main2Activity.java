@@ -1,80 +1,73 @@
 package com.cc.yash.firestoreconnection;
-
-import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
-public class Main2Activity extends AppCompatActivity {
+import uk.co.mgbramwell.geofire.android.GeoFire;
+import uk.co.mgbramwell.geofire.android.listeners.SetLocationListener;
+import uk.co.mgbramwell.geofire.android.model.Distance;
+import uk.co.mgbramwell.geofire.android.model.DistanceUnit;
+import uk.co.mgbramwell.geofire.android.model.QueryLocation;
+
+public class Main2Activity extends AppCompatActivity implements SetLocationListener{
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    //Define a request code to send to Google Play services
-    private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
-    private GoogleApiClient mGoogleApiClient;
-    private LocationRequest mLocationRequest;
     private double currentLatitude;
     private double currentLongitude;
+    private double currentRangeOfQuery;
     private TextView LatValue,LongValue,listOfPeople;
+    private CollectionReference myCollection = db.collection("users");
+    private GeoFire geoFire = new GeoFire(myCollection);
 
-    private FirebaseFirestore fireStoreDatabase;
-
-    public static Set<String> latIds;
-    public static Set<String> longIds;
+    public Main2Activity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        currentRangeOfQuery=10;
 
         LatValue=findViewById(R.id.LatValue);
         LongValue=findViewById(R.id.LongValue);
         listOfPeople=findViewById(R.id.listOfPeople);
 
         FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        fireStoreDatabase = FirebaseFirestore.getInstance();
 
 
         fusedLocationClient.getLastLocation()
-                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
-                    @Override
-                    public void onSuccess(Location location) {
-                        // Got last known location. In some rare situations this can be null.
-                        currentLatitude=location.getLatitude();
-                        currentLongitude=location.getLongitude();
-                        LongValue.setText("Longitude: "+currentLongitude);
-                        LatValue.setText("Latitude: "+currentLatitude);
-                        Map<String,Object> users=new HashMap<>();
-                        users.put("Latitude",location.getLatitude());
-                        users.put("Longitude",location.getLongitude());
-                        users.put("NAME","HAHAHAHA");
-                        db.collection("users")
-                                .add(users);
-                        displayList();
+                .addOnSuccessListener(this, location -> {
+                    // Got last known location. In some rare situations this can be null.
+                    currentLatitude=location.getLatitude();
+                    currentLongitude=location.getLongitude();
+                    LongValue.setText(getApplicationContext().getString(R.string.longitude,currentLongitude));
+                    LatValue.setText(getApplicationContext().getString(R.string.latitude,currentLongitude));
+                    Map<String,Object> user=new HashMap<>();
+                    user.put("Latitude",location.getLatitude());
+                    user.put("Longitude",location.getLongitude());
+                    user.put("Name","Johnny");
+                    db.collection("users")
+                            .add(user)
+                            .addOnSuccessListener(documentReference -> geoFire.setLocation(documentReference.getId(),currentLatitude,currentLongitude,null));
+                    reader();
 
 
-                    }
                 });
 
     }
@@ -82,48 +75,47 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        displayList();
 
     }
 
-    public void displayList(){
-        longIds=new HashSet<>();
-        latIds=new HashSet<>();
-        //matching latitudes
+    @Override
+    public void onCompleted(Exception exception) {
+    }
 
-        fireStoreDatabase.collection("users")
-                .whereLessThanOrEqualTo("Latitude",currentLatitude+10)
-                .whereGreaterThanOrEqualTo("Latitude",currentLatitude-10)
-                .whereEqualTo("Longitude",currentLongitude)
+    public void reader(){
+
+        QueryLocation queryLocation = QueryLocation.fromDegrees(currentLatitude, currentLongitude);
+
+        Distance searchDistance = new Distance(1000.0, DistanceUnit.KILOMETERS);
+        geoFire.query()
+                .whereNearTo(queryLocation,searchDistance)
+                .limit(10)
+                .build()
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                .addOnCompleteListener(task -> {
 
-                        if (task.isSuccessful()) {
-
-                            Set<String> listOfNames=new HashSet<String>();
-
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d("FIRESTOREMESSAGE5 LatitudeValues", document.getId() + " => " + document.get("Name"));
-
-                                listOfNames.add((String)document.get("Name"));
-                                //System.out.println("THE LAT IDS ARE"+latIds);
+                    if (task.isSuccessful()) {
 
 
-                            }
+                        Set<String> listOfNames=new HashSet<>();
 
-                            String toShow="";
-                            for(String x: listOfNames){
-                                toShow+=x+"\n";
-                            }
-                            listOfPeople.setText("The list of all people within 69km are:\n"+toShow);
-                        }else{
+                        for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
+                            Log.d("QueryMessage1", document.getId() + " => " + document.get("Name"));
 
-                            Log.d("FIRESTOREMESSAGE5", "Error getting documents: ", task.getException());
+                            listOfNames.add((String)document.get("Name"));
+
+
                         }
 
+                        StringBuilder toShow= new StringBuilder("\n");
+                        for(String x: listOfNames){
+                            toShow.append(x).append("\n");
+                        }
+                        listOfPeople.setText(getApplicationContext().getString(R.string.displayTestMessage,currentRangeOfQuery, toShow.toString()));
+                    }else{
 
-                    }});
+                        Log.d("QueryMessaage2", "Error getting documents: ", task.getException());
+                    }
+                });
     }
 }

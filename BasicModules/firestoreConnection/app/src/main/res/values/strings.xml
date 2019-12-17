@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">firestoreConnection</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="latitude">Latitude:%1$f</string>
+    <string name="longitude">Longitude:%1$f</string>
+    <string name="displayTestMessage">The list of people within %1$.2f km are %2$s  </string>
 </resources>
