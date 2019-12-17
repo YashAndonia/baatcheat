@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "370324568687",
+    "firebase_url": "https://baatcheat-69420.firebaseio.com",
+    "project_id": "baatcheat-69420",
+    "storage_bucket": "baatcheat-69420.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370324568687:android:8fe0470289ec5eb022ab9a",
+        "android_client_info": {
+          "package_name": "com.anxit.baatcheat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370324568687-saaeur9inodivqca9opmpt6lp4vf72d9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.anxit.baatcheat",
+            "certificate_hash": "0c9a322d9a63664793872faf82b4530c94e0c900"
+          }
+        },
+        {
+          "client_id": "370324568687-koe9trru5grm9j3c7rseb9h5qmdjtttc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7F1xA5L5kbYBsnvXZZq-xa1J4r0OiA5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370324568687-koe9trru5grm9j3c7rseb9h5qmdjtttc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

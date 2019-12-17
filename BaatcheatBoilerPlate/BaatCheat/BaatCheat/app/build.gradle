@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric' //Crashlytics
+apply plugin: 'com.google.firebase.firebase-perf' //Performance monitoring
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "29.0.0"
+    defaultConfig {
+        applicationId "com.anxit.baatcheat"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        resConfigs "en" //Supported languages to remove unwanted resources
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //Firebase:
+    implementation 'com.google.firebase:firebase-analytics:17.2.1' //Analytics
+    implementation 'com.firebaseui:firebase-ui-auth:4.3.2' //Authentication with UI
+    implementation "com.google.firebase:firebase-auth:19.1.0" //Clearing errors
+    implementation 'com.google.firebase:firebase-firestore:21.2.1' //Cloud FireStore (DB)
+    implementation 'com.google.firebase:firebase-analytics:17.2.1'  // Analytics
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1' //Crashlytics
+    implementation 'com.google.firebase:firebase-perf:19.0.1' //Performance Monitoring
+
+    //UI:
+    implementation "com.google.android.material:material:1.2.0-alpha01" //Material Design
+
+    //RecyclerView:
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+}
+
+//Firebase Stuff:
+apply plugin: 'com.google.gms.google-services'

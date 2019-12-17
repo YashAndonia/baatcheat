@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">370324568687-koe9trru5grm9j3c7rseb9h5qmdjtttc.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://baatcheat-69420.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">370324568687</string>
+    <string name="google_api_key" translatable="false">AIzaSyD7F1xA5L5kbYBsnvXZZq-xa1J4r0OiA5g</string>
+    <string name="google_app_id" translatable="false">1:370324568687:android:8fe0470289ec5eb022ab9a</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyD7F1xA5L5kbYBsnvXZZq-xa1J4r0OiA5g</string>
+    <string name="google_storage_bucket" translatable="false">baatcheat-69420.appspot.com</string>
+    <string name="project_id" translatable="false">baatcheat-69420</string>
+</resources>

@@ -1,0 +1,407 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.anxit.baatcheat"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+11-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:12:5-79
+11-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:12:22-76
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:13:5-67
+12-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:13:22-64
+13    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+13-->[com.google.android.gms:play-services-measurement-api:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\09e58a4d133ca5961b1e6c775805be53\play-services-measurement-api-17.2.0\AndroidManifest.xml:24:5-68
+13-->[com.google.android.gms:play-services-measurement-api:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\09e58a4d133ca5961b1e6c775805be53\play-services-measurement-api-17.2.0\AndroidManifest.xml:24:22-65
+14    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+14-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\957b0793de52737dcb2d552fb13bbbac\firebase-iid-19.0.0\AndroidManifest.xml:26:5-82
+14-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\957b0793de52737dcb2d552fb13bbbac\firebase-iid-19.0.0\AndroidManifest.xml:26:22-79
+15    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+15-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:26:5-110
+15-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:26:22-107
+16
+17    <application
+17-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml:5:5-20:19
+18        android:allowBackup="true"
+18-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml:6:9-35
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\0136ca65841c199e13145e51c5d77d51\core-1.1.0\AndroidManifest.xml:24:18-86
+20        android:debuggable="true"
+21        android:icon="@mipmap/ic_launcher"
+21-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml:7:9-43
+22        android:label="@string/app_name"
+22-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml:8:9-41
+23        android:roundIcon="@mipmap/ic_launcher_round"
+23-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml:9:9-54
+24        android:supportsRtl="true"
+24-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml:10:9-35
+25        android:testOnly="true"
+26        android:theme="@style/AppTheme" >
+26-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml:11:9-40
+27        <activity android:name="com.anxit.baatcheat.HomePage" />
+27-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml:12:9-55
+27-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml:12:19-43
+28        <activity android:name="com.anxit.baatcheat.SignInActivity" >
+28-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml:13:9-19:20
+28-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml:13:19-49
+29            <intent-filter>
+29-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml:14:13-18:29
+30                <action android:name="android.intent.action.MAIN" />
+30-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml:15:17-69
+30-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml:15:25-66
+31
+32                <category android:name="android.intent.category.LAUNCHER" />
+32-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml:17:17-77
+32-->D:\Workspace\college\BTPPROJECT\baatcheat\BasicModules\BaatCheat\app\src\main\AndroidManifest.xml:17:27-74
+33            </intent-filter>
+34        </activity>
+35
+36        <meta-data
+36-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:16:9-18:69
+37            android:name="com.google.android.gms.version"
+37-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:17:13-58
+38            android:value="@integer/google_play_services_version" />
+38-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:18:13-66
+39        <meta-data
+39-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:19:9-21:63
+40            android:name="com.facebook.sdk.ApplicationId"
+40-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:20:13-58
+41            android:value="@string/facebook_application_id" />
+41-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:21:13-60
+42
+43        <activity
+43-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:23:9-27:61
+44            android:name="com.firebase.ui.auth.KickoffActivity"
+44-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:24:13-64
+45            android:exported="false"
+45-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:25:13-37
+46            android:label=""
+46-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:26:13-29
+47            android:theme="@style/FirebaseUI.Transparent" />
+47-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:27:13-58
+48        <activity
+48-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:28:9-32:61
+49            android:name="com.firebase.ui.auth.ui.idp.SingleSignInActivity"
+49-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:29:13-76
+50            android:exported="false"
+50-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:30:13-37
+51            android:label=""
+51-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:31:13-29
+52            android:theme="@style/FirebaseUI.Transparent" />
+52-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:32:13-58
+53        <activity
+53-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:33:9-37:61
+54            android:name="com.firebase.ui.auth.ui.credentials.CredentialSaveActivity"
+54-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:34:13-86
+55            android:exported="false"
+55-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:35:13-37
+56            android:label=""
+56-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:36:13-29
+57            android:theme="@style/FirebaseUI.Transparent" />
+57-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:37:13-58
+58        <activity
+58-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:38:9-42:58
+59            android:name="com.firebase.ui.auth.ui.email.RecoverPasswordActivity"
+59-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:39:13-81
+60            android:exported="false"
+60-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:40:13-37
+61            android:label="@string/fui_title_recover_password_activity"
+61-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:41:13-72
+62            android:windowSoftInputMode="adjustResize" />
+62-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:42:13-55
+63        <activity
+63-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:43:9-47:58
+64            android:name="com.firebase.ui.auth.ui.email.EmailActivity"
+64-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:44:13-71
+65            android:exported="false"
+65-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:45:13-37
+66            android:label="@string/fui_sign_in_default"
+66-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:46:13-56
+67            android:windowSoftInputMode="adjustResize" />
+67-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:47:13-55
+68        <activity
+68-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:48:9-52:77
+69            android:name="com.firebase.ui.auth.ui.phone.PhoneActivity"
+69-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:49:13-71
+70            android:exported="false"
+70-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:50:13-37
+71            android:label="@string/fui_sign_in_with_phone_number"
+71-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:51:13-66
+72            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
+72-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:52:13-74
+73        <activity
+73-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:53:9-57:58
+74            android:name="com.firebase.ui.auth.ui.idp.WelcomeBackIdpPrompt"
+74-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:54:13-76
+75            android:exported="false"
+75-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:55:13-37
+76            android:label="@string/fui_title_welcome_back_idp_prompt"
+76-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:56:13-70
+77            android:windowSoftInputMode="adjustResize" />
+77-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:57:13-55
+78        <activity
+78-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:58:9-62:58
+79            android:name="com.firebase.ui.auth.ui.email.WelcomeBackPasswordPrompt"
+79-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:59:13-83
+80            android:exported="false"
+80-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:60:13-37
+81            android:label="@string/fui_title_welcome_back_password_prompt"
+81-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:61:13-75
+82            android:windowSoftInputMode="adjustResize" />
+82-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:62:13-55
+83        <activity
+83-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:63:9-67:58
+84            android:name="com.firebase.ui.auth.ui.email.WelcomeBackEmailLinkPrompt"
+84-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:64:13-84
+85            android:exported="false"
+85-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:65:13-37
+86            android:label="@string/fui_title_welcome_back_password_prompt"
+86-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:66:13-75
+87            android:windowSoftInputMode="adjustResize" />
+87-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:67:13-55
+88        <activity
+88-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:68:9-73:58
+89            android:name="com.firebase.ui.auth.ui.email.EmailLinkCatcherActivity"
+89-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:69:13-82
+90            android:exported="false"
+90-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:70:13-37
+91            android:label=""
+91-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:71:13-29
+92            android:theme="@style/FirebaseUI.Transparent"
+92-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:72:13-58
+93            android:windowSoftInputMode="adjustResize" />
+93-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:73:13-55
+94        <activity
+94-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:74:9-78:58
+95            android:name="com.firebase.ui.auth.ui.email.EmailLinkErrorRecoveryActivity"
+95-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:75:13-88
+96            android:exported="false"
+96-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:76:13-37
+97            android:label="@string/fui_sign_in_default"
+97-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:77:13-56
+98            android:windowSoftInputMode="adjustResize" />
+98-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:78:13-55
+99        <activity
+99-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:79:9-82:65
+100            android:name="com.firebase.ui.auth.ui.idp.AuthMethodPickerActivity"
+100-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:80:13-80
+101            android:exported="false"
+101-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:81:13-37
+102            android:label="@string/fui_default_toolbar_title" />
+102-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:82:13-62
+103        <activity
+103-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:83:9-87:48
+104            android:name="com.facebook.FacebookActivity"
+104-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:84:13-57
+105            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+105-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:85:13-96
+106            android:label="@string/app_name" />
+106-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:86:13-45
+107        <activity
+107-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:88:9-100:20
+108            android:name="com.facebook.CustomTabActivity"
+108-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:89:13-58
+109            android:exported="true" >
+109-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:90:13-36
+110            <intent-filter>
+110-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:92:13-99:29
+111                <action android:name="android.intent.action.VIEW" />
+111-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:93:17-69
+111-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:93:25-66
+112
+113                <category android:name="android.intent.category.DEFAULT" />
+113-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:95:17-76
+113-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:95:27-73
+114                <category android:name="android.intent.category.BROWSABLE" />
+114-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:96:17-78
+114-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:96:27-75
+115
+116                <data android:scheme="@string/facebook_login_protocol_scheme" />
+116-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:98:17-81
+116-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:98:23-78
+117            </intent-filter>
+118        </activity>
+119
+120        <provider
+120-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:102:9-106:38
+121            android:name="com.firebase.ui.auth.data.client.AuthUiInitProvider"
+121-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:103:13-79
+122            android:authorities="com.anxit.baatcheat.authuiinitprovider"
+122-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:104:13-70
+123            android:exported="false"
+123-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:105:13-37
+124            android:initOrder="90" />
+124-->[com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fa10a82d087bf01274b8032bf7ac620f\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:106:13-35
+125
+126        <activity
+126-->[com.google.firebase:firebase-auth:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\0e1720d4cfdf1c7b665c79377e109768\firebase-auth-19.1.0\AndroidManifest.xml:24:9-31:50
+127            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+127-->[com.google.firebase:firebase-auth:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\0e1720d4cfdf1c7b665c79377e109768\firebase-auth-19.1.0\AndroidManifest.xml:25:13-85
+128            android:excludeFromRecents="true"
+128-->[com.google.firebase:firebase-auth:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\0e1720d4cfdf1c7b665c79377e109768\firebase-auth-19.1.0\AndroidManifest.xml:26:13-46
+129            android:exported="true"
+129-->[com.google.firebase:firebase-auth:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\0e1720d4cfdf1c7b665c79377e109768\firebase-auth-19.1.0\AndroidManifest.xml:27:13-36
+130            android:launchMode="singleTask"
+130-->[com.google.firebase:firebase-auth:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\0e1720d4cfdf1c7b665c79377e109768\firebase-auth-19.1.0\AndroidManifest.xml:28:13-44
+131            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+131-->[com.google.firebase:firebase-auth:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\0e1720d4cfdf1c7b665c79377e109768\firebase-auth-19.1.0\AndroidManifest.xml:29:13-102
+132            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+132-->[com.google.firebase:firebase-auth:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\0e1720d4cfdf1c7b665c79377e109768\firebase-auth-19.1.0\AndroidManifest.xml:30:13-72
+133
+134        <service
+134-->[com.google.firebase:firebase-auth:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\0e1720d4cfdf1c7b665c79377e109768\firebase-auth-19.1.0\AndroidManifest.xml:33:9-39:19
+135            android:name="com.google.firebase.components.ComponentDiscoveryService"
+135-->[com.google.firebase:firebase-auth:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\0e1720d4cfdf1c7b665c79377e109768\firebase-auth-19.1.0\AndroidManifest.xml:34:13-84
+136            android:directBootAware="true"
+136-->[com.google.firebase:firebase-common:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:14:13-43
+137            android:exported="false" >
+137-->[com.google.firebase:firebase-auth:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\0e1720d4cfdf1c7b665c79377e109768\firebase-auth-19.1.0\AndroidManifest.xml:35:13-37
+138            <meta-data
+138-->[com.google.firebase:firebase-auth:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\0e1720d4cfdf1c7b665c79377e109768\firebase-auth-19.1.0\AndroidManifest.xml:36:13-38:85
+139                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+139-->[com.google.firebase:firebase-auth:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\0e1720d4cfdf1c7b665c79377e109768\firebase-auth-19.1.0\AndroidManifest.xml:37:17-109
+140                android:value="com.google.firebase.components.ComponentRegistrar" />
+140-->[com.google.firebase:firebase-auth:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\0e1720d4cfdf1c7b665c79377e109768\firebase-auth-19.1.0\AndroidManifest.xml:38:17-82
+141            <meta-data
+141-->[com.google.firebase:firebase-firestore:21.1.1] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\71678cbcd5de5506ed1c51ec38196a7e\jetified-firebase-firestore-21.1.1\AndroidManifest.xml:20:13-22:85
+142                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+142-->[com.google.firebase:firebase-firestore:21.1.1] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\71678cbcd5de5506ed1c51ec38196a7e\jetified-firebase-firestore-21.1.1\AndroidManifest.xml:21:17-111
+143                android:value="com.google.firebase.components.ComponentRegistrar" />
+143-->[com.google.firebase:firebase-firestore:21.1.1] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\71678cbcd5de5506ed1c51ec38196a7e\jetified-firebase-firestore-21.1.1\AndroidManifest.xml:22:17-82
+144            <meta-data
+144-->[com.google.android.gms:play-services-measurement-api:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\09e58a4d133ca5961b1e6c775805be53\play-services-measurement-api-17.2.0\AndroidManifest.xml:30:13-32:85
+145                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+145-->[com.google.android.gms:play-services-measurement-api:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\09e58a4d133ca5961b1e6c775805be53\play-services-measurement-api-17.2.0\AndroidManifest.xml:31:17-139
+146                android:value="com.google.firebase.components.ComponentRegistrar" />
+146-->[com.google.android.gms:play-services-measurement-api:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\09e58a4d133ca5961b1e6c775805be53\play-services-measurement-api-17.2.0\AndroidManifest.xml:32:17-82
+147            <meta-data
+147-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\957b0793de52737dcb2d552fb13bbbac\firebase-iid-19.0.0\AndroidManifest.xml:32:13-34:85
+148                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+148-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\957b0793de52737dcb2d552fb13bbbac\firebase-iid-19.0.0\AndroidManifest.xml:33:17-96
+149                android:value="com.google.firebase.components.ComponentRegistrar" />
+149-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\957b0793de52737dcb2d552fb13bbbac\firebase-iid-19.0.0\AndroidManifest.xml:34:17-82
+150        </service>
+151
+152        <activity
+152-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\f9e170240fadcb84c89f3121fa30c722\jetified-play-services-auth-16.0.1\AndroidManifest.xml:23:9-27:75
+153            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+153-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\f9e170240fadcb84c89f3121fa30c722\jetified-play-services-auth-16.0.1\AndroidManifest.xml:24:13-93
+154            android:excludeFromRecents="true"
+154-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\f9e170240fadcb84c89f3121fa30c722\jetified-play-services-auth-16.0.1\AndroidManifest.xml:25:13-46
+155            android:exported="false"
+155-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\f9e170240fadcb84c89f3121fa30c722\jetified-play-services-auth-16.0.1\AndroidManifest.xml:26:13-37
+156            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+156-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\f9e170240fadcb84c89f3121fa30c722\jetified-play-services-auth-16.0.1\AndroidManifest.xml:27:13-72
+157        <!--
+158            Service handling Google Sign-In user revocation. For apps that do not integrate with
+159            Google Sign-In, this service will never be started.
+160        -->
+161        <service
+161-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\f9e170240fadcb84c89f3121fa30c722\jetified-play-services-auth-16.0.1\AndroidManifest.xml:33:9-36:110
+162            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+162-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\f9e170240fadcb84c89f3121fa30c722\jetified-play-services-auth-16.0.1\AndroidManifest.xml:34:13-89
+163            android:exported="true"
+163-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\f9e170240fadcb84c89f3121fa30c722\jetified-play-services-auth-16.0.1\AndroidManifest.xml:35:13-36
+164            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+164-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\f9e170240fadcb84c89f3121fa30c722\jetified-play-services-auth-16.0.1\AndroidManifest.xml:36:13-107
+165
+166        <receiver
+166-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\957b0793de52737dcb2d552fb13bbbac\firebase-iid-19.0.0\AndroidManifest.xml:37:9-44:20
+167            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+167-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\957b0793de52737dcb2d552fb13bbbac\firebase-iid-19.0.0\AndroidManifest.xml:38:13-78
+168            android:exported="true"
+168-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\957b0793de52737dcb2d552fb13bbbac\firebase-iid-19.0.0\AndroidManifest.xml:39:13-36
+169            android:permission="com.google.android.c2dm.permission.SEND" >
+169-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\957b0793de52737dcb2d552fb13bbbac\firebase-iid-19.0.0\AndroidManifest.xml:40:13-73
+170            <intent-filter>
+170-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\957b0793de52737dcb2d552fb13bbbac\firebase-iid-19.0.0\AndroidManifest.xml:41:13-43:29
+171                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+171-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\957b0793de52737dcb2d552fb13bbbac\firebase-iid-19.0.0\AndroidManifest.xml:42:17-81
+171-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\957b0793de52737dcb2d552fb13bbbac\firebase-iid-19.0.0\AndroidManifest.xml:42:25-78
+172            </intent-filter>
+173        </receiver>
+174
+175        <activity
+175-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\8eb866707b690ca0a19e0e3fe5cc8413\play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+176            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+176-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\8eb866707b690ca0a19e0e3fe5cc8413\play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+177            android:exported="false"
+177-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\8eb866707b690ca0a19e0e3fe5cc8413\play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+178            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+178-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\8eb866707b690ca0a19e0e3fe5cc8413\play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+179
+180        <receiver
+180-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:29:9-33:20
+181            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+181-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:30:13-85
+182            android:enabled="true"
+182-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:31:13-35
+183            android:exported="false" >
+183-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:32:13-37
+184        </receiver>
+185        <receiver
+185-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:34:9-42:20
+186            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+186-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:35:13-100
+187            android:enabled="true"
+187-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:36:13-35
+188            android:exported="true"
+188-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:37:13-36
+189            android:permission="android.permission.INSTALL_PACKAGES" >
+189-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:38:13-69
+190            <intent-filter>
+190-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:39:13-41:29
+191                <action android:name="com.android.vending.INSTALL_REFERRER" />
+191-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:40:17-79
+191-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:40:25-76
+192            </intent-filter>
+193        </receiver>
+194
+195        <service
+195-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:44:9-47:40
+196            android:name="com.google.android.gms.measurement.AppMeasurementService"
+196-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:45:13-84
+197            android:enabled="true"
+197-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:46:13-35
+198            android:exported="false" />
+198-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:47:13-37
+199        <service
+199-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:48:9-52:72
+200            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+200-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:49:13-87
+201            android:enabled="true"
+201-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:50:13-35
+202            android:exported="false"
+202-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:51:13-37
+203            android:permission="android.permission.BIND_JOB_SERVICE" />
+203-->[com.google.android.gms:play-services-measurement:17.2.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\fdc70b0b7960929853ff7c757beb7d4f\play-services-measurement-17.2.0\AndroidManifest.xml:52:13-69
+204
+205        <provider
+205-->[com.google.firebase:firebase-common:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:17:9-21:39
+206            android:name="com.google.firebase.provider.FirebaseInitProvider"
+206-->[com.google.firebase:firebase-common:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:18:13-77
+207            android:authorities="com.anxit.baatcheat.firebaseinitprovider"
+207-->[com.google.firebase:firebase-common:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:19:13-72
+208            android:exported="false"
+208-->[com.google.firebase:firebase-common:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:20:13-37
+209            android:initOrder="100" />
+209-->[com.google.firebase:firebase-common:19.1.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:21:13-36
+210        <provider
+210-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\7f4c8561fc0645c263470a212c3c165d\lifecycle-process-2.0.0\AndroidManifest.xml:23:9-27:43
+211            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+211-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\7f4c8561fc0645c263470a212c3c165d\lifecycle-process-2.0.0\AndroidManifest.xml:24:13-79
+212            android:authorities="com.anxit.baatcheat.lifecycle-process"
+212-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\7f4c8561fc0645c263470a212c3c165d\lifecycle-process-2.0.0\AndroidManifest.xml:25:13-69
+213            android:exported="false"
+213-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\7f4c8561fc0645c263470a212c3c165d\lifecycle-process-2.0.0\AndroidManifest.xml:26:13-37
+214            android:multiprocess="true" />
+214-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\vaish\.gradle\caches\transforms-2\files-2.1\7f4c8561fc0645c263470a212c3c165d\lifecycle-process-2.0.0\AndroidManifest.xml:27:13-40
+215    </application>
+216
+217</manifest>
