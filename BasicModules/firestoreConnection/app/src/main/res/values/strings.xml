@@ -4,4 +4,6 @@
     <string name="latitude">Latitude:%1$f</string>
     <string name="longitude">Longitude:%1$f</string>
     <string name="displayTestMessage">The list of people within %1$.2f km are %2$s  </string>
+    <string name="find_people">Find people!</string>
+    <string name="rangeEntry">Enter Range(eg. 10.0) to search within</string>
 </resources>

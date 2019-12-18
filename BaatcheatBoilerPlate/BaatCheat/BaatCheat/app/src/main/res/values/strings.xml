@@ -13,4 +13,12 @@
     <string name="error_text">This should not be displayed</string>
     <string name="locationQueries">Geolocation Search</string>
     <string name="title_activity_geolocation_search">geolocationSearch</string>
+    <string name="latitude">Latitude:%1$f</string>
+    <string name="longitude">Longitude:%1$f</string>
+    <string name="displayTestMessage">The list of people within %1$.2f km are %2$s  </string>
+    <string name="find_people">Find people!</string>
+    <string name="rangeEntry">Enter Range(eg. 10.0) to search within</string>
+    <string name="gps_network_not_enabled">The GPS is not activated!</string>
+    <string name="open_location_settings">Please open the application settings for enabling gps</string>
+    <string name="Cancel">Cancelled!</string>
 </resources>

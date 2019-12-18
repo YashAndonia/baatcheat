@@ -118,8 +118,6 @@ public class SignInActivity extends AppCompatActivity
         Toast.makeText(this, "Signed in as: "+auth.getCurrentUser().getEmail(), Toast.LENGTH_LONG).show();
         if(!isEmailVerified())
             sendVerificationEmail();
-        else
-            proceed();
     }
 
     public boolean isEmailVerified(){

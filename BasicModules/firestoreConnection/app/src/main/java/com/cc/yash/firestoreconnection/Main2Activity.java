@@ -1,12 +1,18 @@
 package com.cc.yash.firestoreconnection;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -27,6 +33,8 @@ public class Main2Activity extends AppCompatActivity implements SetLocationListe
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    EditText rangeValue;
+    Button searchButton;
     private double currentLatitude;
     private double currentLongitude;
     private double currentRangeOfQuery;
@@ -42,33 +50,61 @@ public class Main2Activity extends AppCompatActivity implements SetLocationListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        searchButton=findViewById(R.id.searchButton);
+        rangeValue=findViewById(R.id.rangeValue);
+
         currentRangeOfQuery=10;
 
+        //locationStuff
         LatValue=findViewById(R.id.LatValue);
         LongValue=findViewById(R.id.LongValue);
         listOfPeople=findViewById(R.id.listOfPeople);
 
+
+        searchButton.setOnClickListener(view -> {
+            String rangeVal=rangeValue.getText().toString();
+            currentRangeOfQuery=Double.valueOf(rangeVal);
+            reader(currentRangeOfQuery);
+        });
+
+        //request location first
+        //https://stackoverflow.com/a/50448772/7406257
+        LocationRequest mLocationRequest = LocationRequest.create();
+        mLocationRequest.setInterval(60000);
+        mLocationRequest.setFastestInterval(5000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        LocationCallback mLocationCallback = new LocationCallback() {
+            @Override
+            public void onLocationResult(LocationResult locationResult) {
+                if (locationResult == null) {
+                    return;
+                }
+            }
+        };
+        LocationServices.getFusedLocationProviderClient(getApplicationContext()).requestLocationUpdates(mLocationRequest, mLocationCallback, null);
+
+
+        //get last location
+
         FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-
-
         fusedLocationClient.getLastLocation()
                 .addOnSuccessListener(this, location -> {
                     // Got last known location. In some rare situations this can be null.
-                    currentLatitude=location.getLatitude();
-                    currentLongitude=location.getLongitude();
-                    LongValue.setText(getApplicationContext().getString(R.string.longitude,currentLongitude));
-                    LatValue.setText(getApplicationContext().getString(R.string.latitude,currentLongitude));
-                    Map<String,Object> user=new HashMap<>();
-                    user.put("Latitude",location.getLatitude());
-                    user.put("Longitude",location.getLongitude());
-                    user.put("Name","Johnny");
-                    db.collection("users")
-                            .add(user)
-                            .addOnSuccessListener(documentReference -> geoFire.setLocation(documentReference.getId(),currentLatitude,currentLongitude,null));
-                    reader();
+                    if(location!=null) {
+                        currentLatitude = location.getLatitude();
+                        currentLongitude = location.getLongitude();
+                        LongValue.setText(getApplicationContext().getString(R.string.longitude, currentLongitude));
+                        LatValue.setText(getApplicationContext().getString(R.string.latitude, currentLongitude));
+                        Map<String, Object> user = new HashMap<>();
+                        user.put("Latitude", location.getLatitude());
+                        user.put("Longitude", location.getLongitude());
+                        user.put("Name", "Johnny");
+                        db.collection("users")
+                                .add(user)
+                                .addOnSuccessListener(documentReference -> geoFire.setLocation(documentReference.getId(), currentLatitude, currentLongitude, null));
+                    }});
 
 
-                });
 
     }
 
@@ -82,11 +118,11 @@ public class Main2Activity extends AppCompatActivity implements SetLocationListe
     public void onCompleted(Exception exception) {
     }
 
-    public void reader(){
+    public void reader(double currentRangeOfQuery){
 
         QueryLocation queryLocation = QueryLocation.fromDegrees(currentLatitude, currentLongitude);
 
-        Distance searchDistance = new Distance(1000.0, DistanceUnit.KILOMETERS);
+        Distance searchDistance = new Distance(currentRangeOfQuery, DistanceUnit.KILOMETERS);
         geoFire.query()
                 .whereNearTo(queryLocation,searchDistance)
                 .limit(10)
