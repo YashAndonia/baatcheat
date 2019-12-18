@@ -1,6 +1,5 @@
 package com.anxit.baatcheat.interestSearch;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,15 +12,12 @@ import android.widget.Toast;
 
 import com.anxit.baatcheat.R;
 import com.anxit.baatcheat.adapters.RecyclerViewAdapter;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class HomePage extends AppCompatActivity {
+public class InterestSearch extends AppCompatActivity {
 
     //Constants:
     private static final String TAG = "CustomLog";
@@ -92,31 +88,18 @@ public class HomePage extends AppCompatActivity {
 
         userData.put(NAME_KEY, Objects.requireNonNull(currentUser.getDisplayName()));
 
-        userDocumentReference.set(userData).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Log.i(TAG, "findPeople: "+"Interest saved successfully");
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.e(TAG, "findPeople: "+"Could not save data + "+e.toString());
-            }
-        });
+        userDocumentReference.set(userData).addOnSuccessListener(aVoid -> Log.i(TAG, "findPeople: "+"Interest saved successfully")).addOnFailureListener(e -> Log.e(TAG, "findPeople: "+"Could not save data + "+e.toString()));
 
         for(int i=0; i<interests.size(); i++) {
-            userCollectionReference.whereArrayContains("interests", interests.get(i)).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                @Override
-                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                    ArrayList<DocumentSnapshot> documents;
-                    documents = (ArrayList<DocumentSnapshot>) queryDocumentSnapshots.getDocuments();
-                    for(int i=0; i<documents.size(); i++){
-                        Log.i(TAG, "onSuccess: "+documents.get(i).get("name"));
-                        //noinspection SuspiciousMethodCalls
-                        if(!Objects.equals(documents.get(i).get("name"), currentUser.getDisplayName())
-                                && !usernameList.contains(documents.get(i).get("name"))) {
-                            usernameList.add((String)documents.get(i).get("name"));
-                        }
+            userCollectionReference.whereArrayContains("interests", interests.get(i)).get().addOnSuccessListener(queryDocumentSnapshots -> {
+                ArrayList<DocumentSnapshot> documents;
+                documents = (ArrayList<DocumentSnapshot>) queryDocumentSnapshots.getDocuments();
+                for(int i1 = 0; i1 <documents.size(); i1++){
+                    Log.i(TAG, "onSuccess: "+documents.get(i1).get("name"));
+                    //noinspection SuspiciousMethodCalls
+                    if(!Objects.equals(documents.get(i1).get("name"), currentUser.getDisplayName())
+                            && !usernameList.contains(documents.get(i1).get("name"))) {
+                        usernameList.add((String)documents.get(i1).get("name"));
                     }
                 }
             });
@@ -126,23 +109,4 @@ public class HomePage extends AppCompatActivity {
     }
 }
 
-/*
-class User{
-    String name;
-    ArrayList<String> interests;
 
-    User(){
-        name = "";
-        interests = new ArrayList<>();
-    }
-
-    public boolean areInterestsSame(ArrayList<String> searchInterests){
-        ArrayList<String> temp = new ArrayList<>();
-        temp = interests;
-        temp.retainAll(searchInterests);
-        if(temp.size()==0)
-            return false;
-        return true;
-    }
-}
-*/

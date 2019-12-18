@@ -21,4 +21,7 @@
     <string name="gps_network_not_enabled">The GPS is not activated!</string>
     <string name="open_location_settings">Please open the application settings for enabling gps</string>
     <string name="Cancel">Cancelled!</string>
+    <string name="integratedSearch">Integrated Search</string>
+    <string name="displayTestMessage2">The people with matching interests are %1s.</string>
+    <string name="displayTestMessage3">The integratedList is %1s</string>
 </resources>

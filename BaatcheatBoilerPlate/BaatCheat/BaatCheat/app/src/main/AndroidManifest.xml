@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,11 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".integratedSearch.IntegratedSearch"></activity>
         <activity
             android:name=".geolocationSearch.geolocationSearch"
             android:label="@string/title_activity_geolocation_search"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".interestSearch.HomePage" />
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".interestSearch.InterestSearch" />
         <activity android:name=".authentication.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

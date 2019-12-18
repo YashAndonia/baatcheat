@@ -1,6 +1,5 @@
 package com.anxit.baatcheat.authentication;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -13,13 +12,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.anxit.baatcheat.R;
-import com.anxit.baatcheat.interestSearch.HomePage;
+import com.anxit.baatcheat.integratedSearch.IntegratedSearch;
+import com.anxit.baatcheat.interestSearch.InterestSearch;
 import com.anxit.baatcheat.geolocationSearch.geolocationSearch;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.ErrorCodes;
 import com.firebase.ui.auth.IdpResponse;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,6 +38,7 @@ public class SignInActivity extends AppCompatActivity
     CoordinatorLayout wrapperCoordinatorLayout;
     Button interestSearch;
     Button locationQueries;
+    Button integratedSearch;
 
     //Authentication:
     FirebaseAuth auth;
@@ -56,6 +55,8 @@ public class SignInActivity extends AppCompatActivity
         interestSearch.setOnClickListener(this);
         locationQueries = findViewById(R.id.locationQueries);
         locationQueries.setOnClickListener(this);
+        integratedSearch=findViewById(R.id.integratedSearch);
+        integratedSearch.setOnClickListener(this);
 
         lastResendTime = 0;
 
@@ -164,20 +165,17 @@ public class SignInActivity extends AppCompatActivity
         //Log.d(TAG, "verifyEmail: "+"Email should be sent now");
         //Send a verification mail:
         auth.getCurrentUser().sendEmailVerification()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        //Check if email was sent successfully
-                        if(task.isSuccessful()){
-                            Log.i(TAG, "verifyEmail: "+"Verification mail sent to "+auth.getCurrentUser().getEmail());
-                            Toast.makeText(SignInActivity.this, "Verification mail sent to "+auth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
-                            lastResendTime = System.currentTimeMillis();
-                            showSnackBar(R.string.verification_email_sent);
-                        }
-                        else{
-                            Log.e(TAG, "verifyEmail: "+"Failed to send verification email. "+task.getException());
-                            showSnackBar(R.string.error_verification_email);
-                        }
+                .addOnCompleteListener(this, task -> {
+                    //Check if email was sent successfully
+                    if(task.isSuccessful()){
+                        Log.i(TAG, "verifyEmail: "+"Verification mail sent to "+auth.getCurrentUser().getEmail());
+                        Toast.makeText(SignInActivity.this, "Verification mail sent to "+auth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+                        lastResendTime = System.currentTimeMillis();
+                        showSnackBar(R.string.verification_email_sent);
+                    }
+                    else{
+                        Log.e(TAG, "verifyEmail: "+"Failed to send verification email. "+task.getException());
+                        showSnackBar(R.string.error_verification_email);
                     }
                 });
     }
@@ -197,7 +195,7 @@ public class SignInActivity extends AppCompatActivity
         }
          */
 
-        startActivity(new Intent(this, HomePage.class));//interestSearchPage
+        startActivity(new Intent(this, InterestSearch.class));//interestSearchPage
     }
 
 
@@ -216,17 +214,30 @@ public class SignInActivity extends AppCompatActivity
         startActivity(new Intent(this, geolocationSearch.class));//geolocationSearch
     }
 
+    //to geolocationSearch
+    public void proceedToIntegratedSearch() {
+        if (auth.getCurrentUser() == null)
+            return;
+
+        /*
+        if (!isEmailVerified()) {  //Does not work!
+            showSnackBar(R.string.verify_email);
+            return;
+        }
+         */
+
+        startActivity(new Intent(this, IntegratedSearch.class));//geolocationSearch
+    }
+
 
 
     
     public void signOut(View view){
         AuthUI.getInstance()
                 .signOut(this)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Log.i(TAG, "signOut: "+"User Signed Out");
-                        signIn();
-                    }
+                .addOnCompleteListener(task -> {
+                    Log.i(TAG, "signOut: "+"User Signed Out");
+                    signIn();
                 });
     }
 
@@ -234,12 +245,7 @@ public class SignInActivity extends AppCompatActivity
     private void showSnackBar(int stringID){
         Snackbar signInSnackBar = Snackbar.make(wrapperCoordinatorLayout, stringID, BaseTransientBottomBar.LENGTH_LONG);
         if(stringID == R.string.verify_email)
-            signInSnackBar.setAction(R.string.resend, new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    sendVerificationEmail();
-                }
-            });
+            signInSnackBar.setAction(R.string.resend, v -> sendVerificationEmail());
         signInSnackBar.show();
     }
 
@@ -250,6 +256,9 @@ public class SignInActivity extends AppCompatActivity
         }
         if (v.getId() == R.id.locationQueries) {
             proceedToLocationSearch();
+        }
+        if (v.getId() == R.id.integratedSearch) {
+            proceedToIntegratedSearch();
         }
     }
 }

@@ -102,7 +102,9 @@ public class geolocationSearch extends AppCompatActivity implements SetLocationL
                             user.put("Name", "Johnny");
                             db.collection("users")
                                     .add(user)
-                                    .addOnSuccessListener(documentReference -> geoFire.setLocation(documentReference.getId(), currentLatitude, currentLongitude, null));
+                                    .addOnSuccessListener(
+
+                                            documentReference -> geoFire.setLocation(documentReference.getId(), currentLatitude, currentLongitude, null));
                         }})
                     .addOnFailureListener(e -> Log.d("FAILUREMESSAGE", "Message is ::" + e));
         }
@@ -126,9 +128,9 @@ public class geolocationSearch extends AppCompatActivity implements SetLocationL
         Log.d("LONG1",getApplicationContext().getString(R.string.longitude,currentLongitude));
         Log.d("LAT1",getApplicationContext().getString(R.string.latitude,currentLatitude));
 
-        QueryLocation queryLocation = QueryLocation.fromDegrees(currentLatitude, currentLongitude);
+            QueryLocation queryLocation = QueryLocation.fromDegrees(currentLatitude, currentLongitude);
 
-        Distance searchDistance = new Distance(currentRangeOfQuery, DistanceUnit.KILOMETERS);
+            Distance searchDistance = new Distance(currentRangeOfQuery, DistanceUnit.KILOMETERS);
         geoFire.query()
                 .whereNearTo(queryLocation,searchDistance)
                 .limit(10)
