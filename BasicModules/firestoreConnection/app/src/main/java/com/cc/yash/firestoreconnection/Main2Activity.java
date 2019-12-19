@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -14,7 +15,10 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.HashMap;
@@ -41,6 +45,7 @@ public class Main2Activity extends AppCompatActivity implements SetLocationListe
     private TextView LatValue,LongValue,listOfPeople;
     private CollectionReference myCollection = db.collection("users");
     private GeoFire geoFire = new GeoFire(myCollection);
+    public static String docIds;
 
     public Main2Activity() {
     }
@@ -99,9 +104,65 @@ public class Main2Activity extends AppCompatActivity implements SetLocationListe
                         user.put("Latitude", location.getLatitude());
                         user.put("Longitude", location.getLongitude());
                         user.put("Name", "Johnny");
+
                         db.collection("users")
                                 .add(user)
-                                .addOnSuccessListener(documentReference -> geoFire.setLocation(documentReference.getId(), currentLatitude, currentLongitude, null));
+                                .addOnSuccessListener(documentReference -> {
+                                    //store the geofire location and store the id somewhere
+                                    geoFire.setLocation(documentReference.getId(), currentLatitude, currentLongitude, null);
+                                    user.put("id",documentReference.getId());
+                                    docIds=documentReference.getId();
+
+                                    Log.d("DOCREF1","The value is "+docIds);
+
+                                    //reading the values so that we can put them in another fixed position
+                                    db.collection("users").document(docIds).get()
+                                            .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+
+                                                Map<String, Object> userStored = new HashMap<>();
+
+                                                @Override
+                                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                    if (task.isSuccessful()){
+                                                        DocumentSnapshot document=task.getResult();
+                                                        if(document.exists()){
+
+                                                            Log.d("GOTTEN DATA", "DocumentSnapshot data: " + document.getData());
+                                                            userStored.put("Latitude",document.get("Latitude"));
+                                                            userStored.put("Longitude",document.get("Longitude"));
+                                                            userStored.put("Name",document.get("Name"));
+                                                            userStored.put("geoFireLocation",document.get("geoFireLocation"));
+
+
+
+
+
+                                                        }
+                                                    }
+                                                }
+                                            });
+
+
+                                });
+
+                        Log.d("DOCREF2","The value is "+docIds);
+
+/*
+                        //reading the values so that we can put them in another fixed position
+                        db.collection("users").document(docIds).get()
+                            .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.isSuccessful()){
+                                        DocumentSnapshot document=task.getResult();
+                                        if(document.exists()){
+
+                                            Log.d("GOTTEN DATA", "DocumentSnapshot data: " + document.getData());
+
+                                        }
+                                    }
+                                }
+                            });*/
                     }});
 
 
