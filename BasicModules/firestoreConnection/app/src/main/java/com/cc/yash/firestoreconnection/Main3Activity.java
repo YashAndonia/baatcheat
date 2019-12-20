@@ -1,5 +1,6 @@
 package com.cc.yash.firestoreconnection;
 
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -70,6 +71,11 @@ public class Main3Activity extends AppCompatActivity {
         LocationCallback mLocationCallback = new LocationCallback() {
             @Override
             public void onLocationResult(LocationResult locationResult) {
+                Location location=locationResult.getLastLocation();
+                currentLatitude = location.getLatitude();
+                currentLongitude = location.getLongitude();
+                LongValue.setText(getApplicationContext().getString(R.string.longitude, currentLongitude));
+                LatValue.setText(getApplicationContext().getString(R.string.latitude, currentLatitude));
             }
         };
         LocationServices.getFusedLocationProviderClient(getApplicationContext()).requestLocationUpdates(mLocationRequest, mLocationCallback, null);

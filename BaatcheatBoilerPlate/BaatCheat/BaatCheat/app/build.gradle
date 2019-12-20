@@ -53,8 +53,6 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
     implementation 'com.google.android.gms:play-services-location:17.0.0'
-    //geoFire for Geo queries
-    implementation 'uk.co.mgbramwell.geofire:geofire-android:0.0.2'
 }
 
 //Firebase Stuff:

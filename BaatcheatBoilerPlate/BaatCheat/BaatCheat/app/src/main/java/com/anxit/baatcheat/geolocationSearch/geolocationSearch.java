@@ -1,7 +1,6 @@
 package com.anxit.baatcheat.geolocationSearch;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 
 import com.anxit.baatcheat.R;
@@ -10,13 +9,14 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
-import com.google.firebase.firestore.CollectionReference;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,13 +28,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-import uk.co.mgbramwell.geofire.android.GeoFire;
-import uk.co.mgbramwell.geofire.android.listeners.SetLocationListener;
-import uk.co.mgbramwell.geofire.android.model.Distance;
-import uk.co.mgbramwell.geofire.android.model.DistanceUnit;
-import uk.co.mgbramwell.geofire.android.model.QueryLocation;
-
-public class geolocationSearch extends AppCompatActivity implements SetLocationListener {
+public class geolocationSearch extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -43,9 +37,8 @@ public class geolocationSearch extends AppCompatActivity implements SetLocationL
     private double currentLatitude;
     private double currentLongitude;
     private double currentRangeOfQuery;
-    private TextView LatValue,LongValue,listOfPeople;
-    private CollectionReference myCollection = db.collection("users");
-    private GeoFire geoFire = new GeoFire(myCollection);
+    private TextView LatValue, LongValue, listOfPeople;
+    public static String docIds;
 
 
 
@@ -54,16 +47,24 @@ public class geolocationSearch extends AppCompatActivity implements SetLocationL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_geolocation_search);
 
-        searchButton=findViewById(R.id.searchButton);
-        rangeValue=findViewById(R.id.rangeValue);
 
-        currentRangeOfQuery=10;
+
+        searchButton = findViewById(R.id.searchButton);
+        rangeValue = findViewById(R.id.rangeValue);
+
+        currentRangeOfQuery = 10;
 
         //locationStuff
-        LatValue=findViewById(R.id.LatValue);
-        LongValue=findViewById(R.id.LongValue);
-        listOfPeople=findViewById(R.id.listOfPeople);
+        LatValue = findViewById(R.id.LatValue);
+        LongValue = findViewById(R.id.LongValue);
+        listOfPeople = findViewById(R.id.listOfPeople);
 
+
+        searchButton.setOnClickListener(view -> {
+            String rangeVal = rangeValue.getText().toString();
+            currentRangeOfQuery = Double.valueOf(rangeVal);
+            reader(currentRangeOfQuery);
+        });
 
         //request location first
         //https://stackoverflow.com/a/50448772/7406257
@@ -74,96 +75,120 @@ public class geolocationSearch extends AppCompatActivity implements SetLocationL
         LocationCallback mLocationCallback = new LocationCallback() {
             @Override
             public void onLocationResult(LocationResult locationResult) {
+                Location location=locationResult.getLastLocation();
+                currentLatitude = location.getLatitude();
+                currentLongitude = location.getLongitude();
+                LongValue.setText(getApplicationContext().getString(R.string.longitude, currentLongitude));
+                LatValue.setText(getApplicationContext().getString(R.string.latitude, currentLatitude));
             }
         };
         LocationServices.getFusedLocationProviderClient(getApplicationContext()).requestLocationUpdates(mLocationRequest, mLocationCallback, null);
 
 
-        //update of location and send to database
-
-        Log.d("getLastKnownLocation","We are here");
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-            return;
-        else {
-
-            Log.d("getLastKnownLocation","We are here");
-            FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-            fusedLocationClient.getLastLocation()
-                    .addOnSuccessListener(this, location -> {
-                        // Got last known location. In some rare situations this can be null.
-                        if(location!=null) {
-                            currentLatitude = location.getLatitude();
-                            currentLongitude = location.getLongitude();
-                            LongValue.setText(getApplicationContext().getString(R.string.longitude, currentLongitude));
-                            LatValue.setText(getApplicationContext().getString(R.string.latitude, currentLongitude));
-                            Map<String, Object> user = new HashMap<>();
-                            user.put("Latitude", location.getLatitude());
-                            user.put("Longitude", location.getLongitude());
-                            user.put("Name", "Johnny");
-                            db.collection("users")
-                                    .add(user)
-                                    .addOnSuccessListener(
-
-                                            documentReference -> geoFire.setLocation(documentReference.getId(), currentLatitude, currentLongitude, null));
-                        }})
-                    .addOnFailureListener(e -> Log.d("FAILUREMESSAGE", "Message is ::" + e));
-        }
-
-//search people nearby using this
-        searchButton.setOnClickListener(view -> {
-            String rangeVal=rangeValue.getText().toString();
-            currentRangeOfQuery=Double.valueOf(rangeVal);
-            reader(currentRangeOfQuery);
-        });
-
-
-    }
-    @Override
-    public void onCompleted(Exception exception) {
-
     }
 
     public void reader(double currentRangeOfQuery){
 
-        Log.d("LONG1",getApplicationContext().getString(R.string.longitude,currentLongitude));
-        Log.d("LAT1",getApplicationContext().getString(R.string.latitude,currentLatitude));
 
-            QueryLocation queryLocation = QueryLocation.fromDegrees(currentLatitude, currentLongitude);
+        //get last location
 
-            Distance searchDistance = new Distance(currentRangeOfQuery, DistanceUnit.KILOMETERS);
-        geoFire.query()
-                .whereNearTo(queryLocation,searchDistance)
-                .limit(10)
-                .build()
-                .get()
-                .addOnCompleteListener(task -> {
+        FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        fusedLocationClient.getLastLocation()
+                .addOnSuccessListener(this, location -> {
+                    // Got last known location. In some rare situations this can be null.
+                    if (location != null) {
+                        currentLatitude = location.getLatitude();
+                        currentLongitude = location.getLongitude();
+                        LongValue.setText(getApplicationContext().getString(R.string.longitude, currentLongitude));
+                        LatValue.setText(getApplicationContext().getString(R.string.latitude, currentLatitude));
+                        Map<String, Object> user = new HashMap<>();
+                        user.put("Latitude", location.getLatitude());
+                        user.put("Longitude", location.getLongitude());
+                        user.put("Name", "Jacob");
 
-                    if (task.isSuccessful()) {
+                        db.collection("users")
+                                .document("Jacob")
+                                .set(user)
+                                .addOnSuccessListener(aVoid -> {
+
+                                });
+
+                        //query on latitude values range
+                        //each latitude degree is 110km. so we get our range accordingly, in km
+                        db.collection("users")
+                                .whereLessThanOrEqualTo("Latitude",currentLatitude+currentRangeOfQuery*(1/110.0))
+                                .whereGreaterThanOrEqualTo("Latitude",currentLatitude-currentRangeOfQuery*(1/110.0))
+                                .get()
+                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                    final Set<String> listOfNames = new HashSet<>();
+                                    @Override
+                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                                        if (task.isSuccessful()) {
 
 
-                        Set<String> listOfNames=new HashSet<>();
+                                            for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
+                                                Log.d("FIRESTOREMESSAGE1", document.getId() + " => " + document.get("Name"));
 
-                        for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
-                            Log.d("QueryMessage1", document.getId() + " => " + document.get("Name"));
-
-                            listOfNames.add((String)document.get("Name"));
+                                                listOfNames.add((String)document.get("Name"));
+                                                //System.out.println("THE LAT IDS ARE"+latIds);
 
 
-                        }
+                                            }
 
-                        StringBuilder toShow= new StringBuilder("\n");
-                        for(String x: listOfNames){
-                            toShow.append(x).append("\n");
-                        }
-                        listOfPeople.setText(getApplicationContext().getString(R.string.displayTestMessage,currentRangeOfQuery, toShow.toString()));
-                    }else{
+                                            Log.d("LongitudeList",listOfNames.toString());
+                                        }
 
-                        Log.d("QueryMessaage2", "Error getting documents: ", task.getException());
+                                        //inside it we are doing a query on longittude values range
+                                        //each longitude degree value depens on the current latitude observed.
+                                        //so we caluclate value of 1 degree at that latitude and then multiply by required range km
+
+                                        db.collection("users")
+                                                .whereLessThanOrEqualTo("Longitude",currentLongitude+currentRangeOfQuery*(1/valueOfOneLongitude(currentLatitude)))
+                                                .whereGreaterThanOrEqualTo("Longitude",currentLongitude-currentRangeOfQuery*(1/valueOfOneLongitude(currentLatitude)))
+                                                .get()
+                                                .addOnCompleteListener(task1 -> {
+                                                    Set<String> listOfNames2=new HashSet<>();
+
+                                                    for (QueryDocumentSnapshot document : Objects.requireNonNull(task1.getResult())) {
+                                                        Log.d("FIRESTOREMESSAGE1", document.getId() + " => " + document.get("Name"));
+
+                                                        listOfNames2.add((String)document.get("Name"));
+                                                    }
+
+                                                    Log.d("LatitudeList",listOfNames2.toString());
+                                                    listOfNames2.retainAll(listOfNames);
+
+                                                    Log.d("CompiledList",listOfNames2.toString());
+
+
+                                                    StringBuilder toShow= new StringBuilder();
+                                                    for(String x: listOfNames2){
+                                                        toShow.append(x).append("\n");
+                                                    }
+                                                    listOfPeople.setText(getApplicationContext().getString(R.string.displayTestMessage,currentRangeOfQuery, toShow.toString()));
+                                                });
+                                    }
+
+                                });
+
+                        Log.d("DOCREF2", "The value is " + docIds);
+
+
                     }
                 });
     }
 
 
+    public static double valueOfOneLongitude(double latitude){
+        double value=Math.cos(latitude * Math.PI / 180);
+        //reference:https://www.space.com/17638-how-big-is-earth.html
+        double radiusOfEarth = 6356.0;
+        value=value*Math.PI/180* radiusOfEarth;
+
+        return value;
+
+    }
 
 
 
